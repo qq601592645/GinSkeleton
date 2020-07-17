@@ -10,6 +10,4 @@ export CGO_ENABLED=0
 
 
 
-go build Cmd/Web/mian.go  -ldflags "-X main.Version=1.1.0 -X main.Build=202005" -o $DOCKER_PKG_PATH/bin/tiforg
-
-chmod +x $DOCKER_PKG_PATH/bin/tiforg
+go build Cmd/Web/mian.go  -ldflags "-X main.Version=1.1.0 -X main.Build=202005" 
