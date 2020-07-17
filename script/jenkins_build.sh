@@ -9,5 +9,5 @@ export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=0
 
 
-
-go build Cmd/Web/mian.go  -ldflags "-X main.Version=1.1.0 -X main.Build=202005" 
+cd Cmd/Web/
+go build -ldflags "-X main.Version=1.1.0 -X main.Build=202005" 
