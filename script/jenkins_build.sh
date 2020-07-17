@@ -8,8 +8,7 @@ export GOARCH=amd64
 export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=0
 
-rm -f $DOCKER_PKG_PATH/bin/tiforg
-cp -f etc/*  $DOCKER_PKG_PATH/etc/
+
 
 go build -ldflags "-X main.Version=1.1.0 -X main.Build=202005" -o $DOCKER_PKG_PATH/bin/tiforg
 
