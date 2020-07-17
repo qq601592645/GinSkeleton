@@ -9,10 +9,5 @@ pipeline {
 			    sh 'sh script/jenkins_build.sh'
             }
         }
-        stage('Package') {
-            steps {
-                sh 'sh script/jenkins_package.sh $BRANCH_NAME'
-            }
-        }
     }
 }
