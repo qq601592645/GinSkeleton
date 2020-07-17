@@ -1,0 +1,23 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /                         --> GinSkeleton/Routers.InitWebRouter.func1 (4 handlers)
+[GIN-debug] GET    /public/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /public/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /dir/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /dir/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /abcd                     --> github.com/gin-gonic/gin.(*RouterGroup).StaticFile.func1 (4 handlers)
+[GIN-debug] HEAD   /abcd                     --> github.com/gin-gonic/gin.(*RouterGroup).StaticFile.func1 (4 handlers)
+[GIN-debug] GET    /Admin/ws                 --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (4 handlers)
+[GIN-debug] POST   /Admin/users/register     --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (4 handlers)
+[GIN-debug] POST   /Admin/users/login        --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (4 handlers)
+[GIN-debug] POST   /Admin/users/refreshtoken --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (4 handlers)
+[GIN-debug] GET    /Admin/users/delete       --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (4 handlers)
+[GIN-debug] GET    /Admin/users/index        --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (5 handlers)
+[GIN-debug] POST   /Admin/users/create       --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (5 handlers)
+[GIN-debug] POST   /Admin/users/edit         --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (5 handlers)
+[GIN-debug] POST   /Admin/upload/files       --> GinSkeleton/App/Http/Validator/Core/Interface.ValidatorInterface.CheckParams-fm (5 handlers)
+[GIN-debug] Listening and serving HTTP on :2020

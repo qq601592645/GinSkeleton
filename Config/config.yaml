@@ -1,0 +1,97 @@
+APP_DEBUG: true
+
+UseDbType: "mysql"                  #默认启用 mysql 数据库，备选项：mysql、sqlserver、
+
+Mysql:
+  Host: "127.0.0.1"
+  DataBase: "db_stocks"
+  Port: 3308                        #注意，非3306，请自行调整
+  Prefix: "tb_"
+  User: "root"
+  Pass: "DRsXT5ZJ6Oi55LPQ"
+  Charset: "utf8"
+  SetMaxIdleConns: 10
+  SetMaxOpenConns: 128
+  SetConnMaxLifetime: 60
+  PingFailRetryTimes: 3
+
+SqlServer:
+  Host: "127.0.0.1"
+  DataBase: "db_goskeleton"
+  Port: 1433
+  Prefix: "tb_"
+  User: "sa"
+  Pass: "secret2017"
+  SetMaxIdleConns: 10
+  SetMaxOpenConns: 128
+  SetConnMaxLifetime: 60
+  PingFailRetryTimes: 3
+
+Redis:
+  Host: "127.0.0.1"
+  Port: 6379
+  Auth: ""
+  MaxIdle: 10
+  MaxActive: 1000
+  IdleTimeout: 60
+  IndexDb: 1
+
+Websocket:                            #该服务与Http具有相同的ip、端口，因此不需要额外设置端口
+  Start: 0                            #默认不启动该服务（1=启动；0=不启动）
+  WriteReadBufferSize: 20480          # 读写缓冲区分配字节，大概能存储 6800 多一点的文字
+  MaxMessageSize: 65535               # 从消息管道读取消息的最大字节
+  PingPeriod: 30                      #心跳包频率，单位：秒
+  HeartbeatFailMaxTimes: 4            # 允许心跳失败的最大次数（默认设置为PingPeriod=30秒检测一次，连续4次没有心跳就会清除后端在线信息）
+  ReadDeadline: 0                     # 客户端在线情况下，正常的业务消息间隔秒数必须小于该值，否则服务器将会主动断开,单位：秒。 0 表示不设限制，即服务器不主动断开不发送任何消息的在线客户端
+
+FileUploadSetting:
+  Size: 32                            #设置上传文件的最大值，单位：M
+  AllowMimeType:                      #允许的文件mime类型列表
+    - "image/jpeg"                    #jpg、jpeg图片格式
+    - "image/png"                     #png图片格式
+    - "image/x-icon"                  #ico图片
+    - "image/bmp"                     #bmp图片
+    - "application/zip"               #xlsx、docx、zip
+    - "application/x-gzip"            #tar.gz
+    - "text/plain; charset=utf-8"     #txt log json等文本文件
+
+RabbitMq:
+  HelloWorld:
+    Addr: "amqp://账号:密码@ip地址:5672"                        #消息服务器地址、账号、密码
+    QueueName: "helloword_queue"
+    Durable: false                                        #消息是否持久化
+    ConsumerChanNumber: 2                                 #消费者通道数量（允许一个消费者使用几个连接通道消费、处理消息）
+    OffLineReconnectIntervalSec: 5                       #消费者掉线后,重连间隔的秒数
+    RetryCount: 5                                         #消费者掉线后,尝试重连最大次数
+  WorkQueue:
+    Addr: "amqp://账号:密码@ip地址:5672"                        #消息服务器地址、账号、密码
+    QueueName: "work_queue"
+    Durable: false                                        #消息是否持久化
+    ConsumerChanNumber: 2                                 #消费者通道数量（允许一个消费者使用几个连接通道消费、处理消息）
+    OffLineReconnectIntervalSec: 5                       #消费者掉线后,重连间隔的秒数
+    RetryCount: 5                                         #消费者掉线后,尝试重连最大次数
+  PublishSubscribe:
+    Addr: "amqp://账号:密码@ip地址:5672"                        #消息服务器地址、账号、密码
+    ExchangeType: "fanout"
+    ExchangeName: "fanout_exchange"
+    Durable: false                                        #消息是否持久化
+    QueueName: ""                                         #队列名称，为空 表示所有订阅的消费者（consumer）都可以接受到同样的消息，如果设置名称，会导致只有最后一个启动的消费者能接受到消息。
+    ConsumerChanNumber: 1                                 #消费者通道数量（发布、订阅模式消费者使用一个通道，避免多个通道重复收到数据）
+    OffLineReconnectIntervalSec: 10                       #消费者掉线后,重连间隔的秒数
+    RetryCount: 5                                         #消费者掉线后,尝试重连最大次数
+  Routing:
+    Addr: "amqp://账号:密码@ip地址:5672"                       #消息服务器地址、账号、密码
+    ExchangeType: "direct"
+    ExchangeName: "direct_exchange"
+    Durable: false                                        #消息是否持久化
+    QueueName: ""
+    OffLineReconnectIntervalSec: 10                       #消费者掉线后,重连间隔的秒数
+    RetryCount: 5                                         #消费者掉线后,尝试重连最大次数
+  Topics:
+    Addr: "amqp://账号:密码@ip地址:5672"                        #消息服务器地址、账号、密码
+    ExchangeType: "topic"
+    ExchangeName: "topic_exchange"
+    Durable: false                                        #消息是否持久化
+    QueueName: ""
+    OffLineReconnectIntervalSec: 10                       #消费者掉线后,重连间隔的秒数
+    RetryCount: 5                                         #消费者掉线后,尝试重连最大次数
