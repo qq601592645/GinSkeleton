@@ -1,0 +1,2 @@
+# GinSkeleton
+go
