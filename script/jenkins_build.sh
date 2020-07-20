@@ -9,4 +9,4 @@ export GO15VENDOREXPERIMENT=1
 export CGO_ENABLED=0
 
 
-go build GinSkeleton/Cmd/Web/ -ldflags "-X main.Version=1.1.0 -X main.Build=202005"
+go build GinSkeleton/Cmd/Web/
